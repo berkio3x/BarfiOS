@@ -1,6 +1,7 @@
 [org 0x7c00] ; Tell the assember the place to load this code
 
-    mov bx, HELLO_MSG ; move the data to the bx register
+    mov si, HELLO_MSG ; move the data to the bx register
+    pusha
     call printstr     ; call printstr routine
 
     %include "printstr.asm"
