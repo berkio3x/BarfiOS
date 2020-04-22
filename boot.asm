@@ -1,20 +1,16 @@
-mov ah, 0x0e
-mov al, 'B'
-int 0x10
-mov al, 'a'
-int 0x10
-mov al, 'r'
-int 0x10
-mov al, 'f'
-int 0x10
-mov al, 'i'
-int 0x10
+[org 0x7c00] ; Tell the assember the place to load this code
 
-mov al, 'O'
-int 0x10
-mov al, 'S'
-int 0x10
+    mov bx, HELLO_MSG ; move the data to the bx register
+    call printstr     ; call printstr routine
+
+    %include "printstr.asm"
+
+; Data
+HELLO_MSG:
+    db 'Hello world BarfiOS!', 0
+
 jmp $
 
 times  510-($-$$) db 0
 dw  0xaa55
+
