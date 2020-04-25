@@ -1,6 +1,7 @@
 # BarfiOS
 An ambitious project to implement an operating system from scratch.
 
+![image](./screenshot.png)
 compiling kernel:
 
 Compile the `cpp` files with `-m32` to produce an 32 bit elf file.  
