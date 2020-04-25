@@ -23,7 +23,7 @@ TTY::TTY()
 void TTY::init(){
 
 
-    color = vga_entry_color(VGA_COLOR_LIGHT_GREEN, VGA_COLOR_BLACK);
+    color = vga_entry_color(VGA_COLOR_BLACK, VGA_COLOR_LIGHT_BLUE);
     buffer = VGA_MEMORY;
 
     for(size_t y = 0; y < VGA_HEIGHT; y++) {
@@ -44,8 +44,25 @@ void TTY::put_at(unsigned char uc, uint8_t color, size_t x, size_t y){
 
 void TTY::putchar(char c){
     unsigned char uc = c;
-    put_at(uc, color, col, row);
-    col++;
+
+    switch(uc){
+
+        case '\n':
+            {
+                col = 0;
+                row ++;
+                break;
+            }
+        default: {
+            put_at(uc, color, col, row);
+            col ++;
+            break;
+
+            }
+
+    }
+
+
 }
 
 void TTY::write(const char* data, size_t size){
