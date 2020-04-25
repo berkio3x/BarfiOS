@@ -1,4 +1,16 @@
 
+
+/**
+
+Configuration for VGA text buffer mode.
+
+In text mode a character is represented by a 16 byte ,
+    where 1st 8 bytes - used for attributes {BACKGROUND + FOREGROUND}
+    2nd 8 bytes - used to represent the ascii code point of character.
+
+**/
+
+
 enum vga_color {
 	VGA_COLOR_BLACK = 0 ,
 	VGA_COLOR_BLUE = 1,
@@ -24,7 +36,7 @@ static inline uint8_t vga_entry_color(enum vga_color background,enum vga_color f
 
 }
 
-static inline uint8_t vga_entry(unsigned char uc, uint8_t color){
+static inline uint16_t vga_entry(unsigned char uc, uint8_t color){
 
 	return (uint16_t)uc | (uint16_t)color  << 8;
 
