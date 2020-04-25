@@ -10,7 +10,7 @@ g++ -I ./include/ -c kernel/kernel.cpp   -c arch/i386/tty.cpp -ffreestanding -fn
 Compile the boostraping assembly file.
 
 ```
-nasm -f elf32 kernel.asm -o kasm.o
+nasm -f elf32 arch/i386/boot.S -o kasm.o
 ```
 
 link the `elfs` produce by assembly & gcc compiler using a linker.
