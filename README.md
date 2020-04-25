@@ -1,8 +1,10 @@
 # BarfiOS
 An ambitious project to implement an operating system from scratch.
 
-![image](./screenshot.png)
-compiling kernel:
+<img src="./screenshot.png" width="600" height="400">
+
+
+##### compiling kernel:
 
 Compile the `cpp` files with `-m32` to produce an 32 bit elf file.  
 ```
